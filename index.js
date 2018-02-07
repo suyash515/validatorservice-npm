@@ -68,9 +68,9 @@ module.exports = {
     _validateEnum: function(item, errors) {
         var errorMessage = "";
 
-        if (item.in) {
+        if (item.in && item.value) {
             if (_.indexOf(item.in, item.value) == -1) {
-                errorMessage = ReqService.req.__("error.validation.invalid");
+                errorMessage = ReqService.req.__("error.validation.invalid", item.name);
                 this._pushError(errors, item, errorMessage);
             }
         }
