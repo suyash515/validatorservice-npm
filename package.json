@@ -1,7 +1,7 @@
 {
-  "name": "validatorservice",
+  "name": "@suyashsumaroo/simple-validator",
   "version": "0.1.0",
-  "description": "Validator service to allow easy validation of required, max length fields, email, etc.",
+  "description": "Simple validator service to allow easy validation of required, max length fields, email, etc.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
