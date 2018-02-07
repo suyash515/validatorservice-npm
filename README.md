@@ -5,7 +5,7 @@ A simple validator library to validate fields, max lengths, min lengths, emails,
 
 ## Installation
 
-  `npm install validatorservice`
+  `npm i @suyashsumaroo/simple-validator`
 
 ## Usage
 
