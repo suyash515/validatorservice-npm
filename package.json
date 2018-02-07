@@ -1,0 +1,22 @@
+{
+  "name": "validatorservice",
+  "version": "0.1.0",
+  "description": "Validator service to allow easy validation of required, max length fields, email, etc.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@bitbucket.org/suyash_sumaroo/validatorservice-npm.git"
+  },
+  "keywords": [
+    "validation"
+  ],
+  "author": "Sumaroo Suyash Kumar <suyash@codevigor.com> (http://www.codevigor.com)",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/suyash_sumaroo/validatorservice-npm#readme",
+  "dependencies": {
+    "email-validator": "^1.1.1"
+  }
+}
