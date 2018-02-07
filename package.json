@@ -1,6 +1,6 @@
 {
   "name": "@suyashsumaroo/simple-validator",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "Simple validator service to allow easy validation of required, max length fields, email, etc.",
   "main": "index.js",
   "scripts": {

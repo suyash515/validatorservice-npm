@@ -70,7 +70,7 @@ module.exports = {
 
         if (item.in) {
             if (_.indexOf(item.in, item.value) == -1) {
-                errorMessage = ReqService.req.__("model.app.error.invalid_security_values");
+                errorMessage = ReqService.req.__("error.validation.invalid");
                 this._pushError(errors, item, errorMessage);
             }
         }
