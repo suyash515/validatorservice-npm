@@ -9,20 +9,20 @@ A simple validator library to validate fields, max lengths, min lengths, emails,
 
 ## Usage
 
-    var validatorservice = require('validatorservice');
+    var simpleValidator = require('simple-validator');
 
     var validationElements = [{
-        type: validatorservice.constants.type.string,
+        type: simpleValidator.constants.type.string,
         maxLength: App.attributes.name.maxLength,
         value: "Suyash Sumaroo",
         name: "Name",
         required: true
     }, {
-        type: validatorservice.constants.type.enum,
+        type: simpleValidator.constants.type.enum,
         value: "no",
         name: "Security",
         required: true,
         in: ["yes", "no"]
     }];
 
-    var error = validatorservice.validate(validationElements);
+    var error = simpleValidator.validate(validationElements);
