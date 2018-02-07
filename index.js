@@ -98,7 +98,8 @@ module.exports = {
         } else {
             errorArray.push({
                 field: item.name,
-                message: [error]
+                message: [error],
+                code: ErrorService.error_codes.validation_error
             });
         }
     }
