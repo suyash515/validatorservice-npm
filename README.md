@@ -13,7 +13,7 @@ A simple validator library to validate fields, max lengths, min lengths, emails,
 
     var validationElements = [{
         type: simpleValidator.constants.type.string,
-        maxLength: App.attributes.name.maxLength,
+        maxLength: 200,
         value: "Suyash Sumaroo",
         name: "Name",
         required: true
@@ -26,3 +26,14 @@ A simple validator library to validate fields, max lengths, min lengths, emails,
     }];
 
     var error = simpleValidator.validate(validationElements);
+
+## Values that can be validated
+    
+    The following value types can be validated:
+        - string: simpleValidator.constants.type.string
+        - email: simpleValidator.constants.type.email
+        - password: simpleValidator.constants.type.password
+        - enum: simpleValidator.constants.type.enum
+        - json: simpleValidator.constants.type.json
+
+    When using enum, an additional 'in' parameter should be passed with the list of values in the array
