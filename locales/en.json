@@ -1,0 +1,9 @@
+{
+	"error.validation.maxCharacters" : "%s cannot be more than %s characters",
+	"error.validation.required": "%s is required",
+	"error.validation.unique": "%s already exists",
+	"error.validation.invalid": "%s is invalid",
+	"error.validation.invalid_json": "%s is not a valid json",
+
+	"error.general": "An unknown error occurred"
+}

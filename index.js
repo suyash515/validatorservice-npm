@@ -1,5 +1,13 @@
 'use strict';
 
+var i18n = require("i18n");
+var lodash = require("lodash");
+
+i18n.configure({
+    locales: ['en'],
+    directory: __dirname + '/locales'
+});
+
 module.exports = {
 
     constants: {
@@ -16,7 +24,7 @@ module.exports = {
         var errors = [];
         var self = this;
 
-        _.each(values, function(item) {
+        lodash.each(values, function(item) {
             self._validateLength(item, errors);
             self._validateRequired(item, errors);
             self._validateEnum(item, errors);
@@ -37,7 +45,7 @@ module.exports = {
         if (item.maxLength) {
             if (item.value) {
                 if (item.value.length > item.maxLength) {
-                    errorMessage = ReqService.req.__("error.validation.maxCharacters", item.name, item.maxLength);
+                    errorMessage = i18n.__("error.validation.maxCharacters", item.name, item.maxLength);
                     this._pushError(errors, item, errorMessage);
                 }
             }
@@ -49,7 +57,7 @@ module.exports = {
 
         if (item.required) {
             if (item.value && item.value.length > 0) {} else {
-                errorMessage = ReqService.req.__("error.validation.required", item.name);
+                errorMessage = i18n.__("error.validation.required", item.name);
                 this._pushError(errors, item, errorMessage);
             }
         }
@@ -60,7 +68,7 @@ module.exports = {
         var errorMessage = "";
 
         if (!emailValidator.validate(item.value)) {
-            errorMessage = ReqService.req.__("error.validation.invalid", item.value);
+            errorMessage = i18n.__("error.validation.invalid", item.value);
             this._pushError(errors, item, errorMessage);
         }
     },
@@ -69,8 +77,8 @@ module.exports = {
         var errorMessage = "";
 
         if (item.in && item.value) {
-            if (_.indexOf(item.in, item.value) == -1) {
-                errorMessage = ReqService.req.__("error.validation.invalid", item.name);
+            if (lodash.indexOf(item.in, item.value) == -1) {
+                errorMessage = i18n.__("error.validation.invalid", item.name);
                 this._pushError(errors, item, errorMessage);
             }
         }
@@ -82,14 +90,14 @@ module.exports = {
 
         if (item.value && item.value.length > 0) {
             if (!isJSON(item.value)) {
-                errorMessage = ReqService.req.__("error.validation.invalid_json", item.name);
+                errorMessage = i18n.__("error.validation.invalid_json", item.name);
                 this._pushError(errors, item, errorMessage);
             }
         }
     },
 
     _pushError: function(errorArray, item, error) {
-        var existingElement = _.find(errorArray, {
+        var existingElement = lodash.find(errorArray, {
             field: item.name
         });
 
@@ -99,7 +107,7 @@ module.exports = {
             errorArray.push({
                 field: item.name,
                 message: [error],
-                code: ErrorService.error_codes.validation_error
+                code: 5000
             });
         }
     }
