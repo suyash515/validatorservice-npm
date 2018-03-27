@@ -67,9 +67,11 @@ module.exports = {
         var emailValidator = require("email-validator");
         var errorMessage = "";
 
-        if (!emailValidator.validate(item.value)) {
-            errorMessage = i18n.__("error.validation.invalid", item.value);
-            this._pushError(errors, item, errorMessage);
+        if (item.value && item.value.length > 0) {
+            if (!emailValidator.validate(item.value)) {
+                errorMessage = i18n.__("error.validation.invalid", item.value);
+                this._pushError(errors, item, errorMessage);
+            }
         }
     },
 
