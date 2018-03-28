@@ -1,11 +1,11 @@
-'use strict';
+"use strict";
 
 var i18n = require("i18n");
 var lodash = require("lodash");
 
 i18n.configure({
-    locales: ['en'],
-    directory: __dirname + '/locales'
+    locales: ["en"],
+    directory: __dirname + "/locales"
 });
 
 module.exports = {
@@ -23,6 +23,8 @@ module.exports = {
     validate: function(values) {
         var errors = [];
         var self = this;
+
+        i18n.setLocale("en");
 
         lodash.each(values, function(item) {
             self._validateLength(item, errors);
@@ -87,7 +89,7 @@ module.exports = {
     },
 
     _validateJson: function(item, errors) {
-        var isJSON = require('is-json');
+        var isJSON = require("is-json");
         var errorMessage = "";
 
         if (item.value && item.value.length > 0) {
