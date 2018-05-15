@@ -16,7 +16,8 @@ module.exports = {
             email: "email",
             password: "password",
             enum: "enum",
-            json: "json"
+            json: "json",
+            number: "number"
         }
     },
 
@@ -35,6 +36,8 @@ module.exports = {
                 self._validateEmail(item, errors);
             } else if (item.type == self.constants.type.json) {
                 self._validateJson(item, errors);
+            } else if (item.type == self.constants.type.number) {
+                self._validateNumber(item, errors);
             }
         });
 
@@ -83,6 +86,17 @@ module.exports = {
         if (item.in && item.value) {
             if (lodash.indexOf(item.in, item.value) == -1) {
                 errorMessage = i18n.__("error.validation.invalid", item.name);
+                this._pushError(errors, item, errorMessage);
+            }
+        }
+    },
+
+    _validateNumber: function(item, errors) {
+        var errorMessage = "";
+
+        if (item.value && item.value.length > 0) {
+            if(isNaN(item.value)) {
+                errorMessage = i18n.__("error.validation.invalid_number", item.value);
                 this._pushError(errors, item, errorMessage);
             }
         }

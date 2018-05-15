@@ -35,5 +35,6 @@ A simple validator library to validate fields, max lengths, min lengths, emails,
         - password: simpleValidator.constants.type.password
         - enum: simpleValidator.constants.type.enum
         - json: simpleValidator.constants.type.json
+        - number: simpleValidator.constants.type.number
 
     When using enum, an additional 'in' parameter should be passed with the list of values in the array
