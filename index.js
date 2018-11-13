@@ -58,10 +58,16 @@ module.exports = {
     },
 
     _validateRequired: function(item, errors) {
-        var errorMessage = "";
+        var errorMessage = "",
+            stringItem = item.value + "";
 
         if (item.required) {
-            if (item.value && item.value.length > 0) {} else {
+            if (item.value) {
+                if (stringItem && stringItem.length > 0) {} else {
+                    errorMessage = i18n.__("error.validation.required", item.name);
+                    this._pushError(errors, item, errorMessage);
+                }
+            } else {
                 errorMessage = i18n.__("error.validation.required", item.name);
                 this._pushError(errors, item, errorMessage);
             }
@@ -95,7 +101,7 @@ module.exports = {
         var errorMessage = "";
 
         if (item.value && item.value.length > 0) {
-            if(isNaN(item.value)) {
+            if (isNaN(item.value)) {
                 errorMessage = i18n.__("error.validation.invalid_number", item.value);
                 this._pushError(errors, item, errorMessage);
             }

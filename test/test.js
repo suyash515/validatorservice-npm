@@ -12,8 +12,9 @@ var validationElements = [{
     required: true
 }, {
     type: app.constants.type.number,
-    value: "5",
-    name: "Number Test"
+    value: 2,
+    name: "Number Test",
+    required: true
 }];
 
 describe("App", function() {
